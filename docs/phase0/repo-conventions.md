@@ -20,36 +20,49 @@ GitHubリポジトリ運用ルールを定義する。
 
 root/
 │
-├── src/                        # GASソースコード
-│   ├── domain/                 # 業務ロジック（採点・集計）
-│   ├── application/            # ユースケース処理
-│   ├── infrastructure/         # Spreadsheet / Form連携
-│   ├── presentation/           # エントリポイント・トリガー
+├── src/                                # GASソースコード
+│   ├── domain/                         # 業務ロジック（採点・集計）
+│   ├── application/                    # ユースケース処理
+│   ├── infrastructure/                 # Spreadsheet / Form連携
+│   ├── presentation/                   # エントリポイント・トリガー
 │   └── appsscript.json
 │
-├── docs/                       # 設計・仕様ドキュメント
+├── docs/                               # 設計・仕様ドキュメント
 │   │
-│   ├── phase0/                 # Phase0（企画）
+│   ├── phase0/                         # Phase0（企画）
 │   │   ├── phase0-charter.md
 │   │   ├── mvp-scope.md
 │   │   ├── highlevel-requirements.md
 │   │   ├── feasibility-memo.md
 │   │   └── repo-conventions.md
 │   │
-│   └── phase1/                 # Phase1（要求定義）
-│       ├── use-cases.md
-│       ├── acceptance-criteria.md
-│       ├── data-requirements.md
-│       ├── permission-model.md
-│       ├── requirements-spec.md
-│       └── test-scenarios.md
+│   ├── phase1/                         # Phase1（要求定義）
+│   │   ├── use-cases.md
+│   │   ├── acceptance-criteria.md
+│   │   ├── data-requirements.md
+│   │   ├── permission-model.md
+│   │   ├── requirements-spec.md
+│   │   ├── requirements-decisions.md
+│   │   └── test-scenarios.md
+│   │
+│   └── phase2/                         # Phase2（基本設計）
+│       ├── architecture.md             # 全体アーキテクチャ設計
+│       ├── data-model.md               # 論理データモデル（ERD）
+│       ├── physical-schema.md          # スプレッドシート物理設計
+│       ├── form-mapping.md             # フォームとquestionIdの対応設計
+│       ├── batch-and-triggers.md       # トリガー・バッチ設計
+│       ├── sequences.md                # シーケンス図（PlantUML）
+│       ├── error-handling.md           # 例外・通知設計
+│       └── ops-runbook.md              # 運用手順書
 │
-├── diagrams/                   # 図ファイル
+├── diagrams/                           # 図ファイル
 │   ├── architecture.puml
 │   ├── er-diagram.puml
+│   ├── sequences/                      # シーケンス図
+│   │   └── *.puml
 │   └── *.drawio
 │
-├── samples/                    # サンプルデータ
+├── samples/                            # サンプルデータ
 │
 └── README.md
 

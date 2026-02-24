@@ -77,10 +77,13 @@ MVPは要件充足と判断される。
 ### 要件
 
 - QuizからGoogleフォームを自動生成できる
-- Googleアカウント限定回答
+- Googleアカウント限定回答（ただしドメイン限定はしない）
 - メールアドレスを収集する
 - 回答先スプレッドシートを紐付ける
 - 複数回回答を許可する
+- 生成したformIdを保存する
+- quizIdとformIdの対応関係を保持する
+- responseSpreadsheetIdも保存する
 
 ---
 
@@ -104,6 +107,11 @@ MVPは要件充足と判断される。
 - 合計得点を保存する
 - AttemptAnswersを正規化保存する
 - 初回Attemptを識別可能とする（IRT準備）
+- 決定：初回判定は「その userId がその questionId に初めて回答した AttemptAnswer」
+- 実装上の扱い（設計方針）
+  - Attempt単位の isFirstAttempt は意味が変わるので、IRT用途は AttemptAnswers側で管理するのが整合的
+    - 例：AttemptAnswers に isFirstSeenForUserQuestion を持つ
+  - 初回判定は「保存時に過去AttemptAnswersを検索して決める」か「後でバッチで付与」かを Phase2 で決める
 
 ---
 
@@ -127,6 +135,13 @@ MVPは要件充足と判断される。
 - 教師へ通知する
 - データ不整合を検知可能とする
 - 必要に応じてデータ削除可能とする
+  - 決定：物理削除は禁止、論理削除のみ
+  - 論理削除の典型列
+    - isDeleted（bool）
+    - deletedAt（timestamp）
+    - deletedBy（teacher email）
+    - deleteReason（任意）
+  - 連動：Attemptを論理削除したら、AttemptAnswersも同一attemptIdで一括論理削除
 
 ---
 

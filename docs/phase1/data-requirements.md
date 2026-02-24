@@ -80,6 +80,8 @@
 - title
 - createdBy
 - createdAt
+- formId
+- responseSpreadsheetId
 - deadline（任意）
 
 ---
@@ -113,7 +115,7 @@ QuizとQuestionの関連を保持する。
 - userId（Googleアカウント）
 - submittedAt
 - totalScore
-- isFirstAttempt（IRT用）
+- isFirstSeenForUserQuestion（bool）
 
 ### 制約
 
@@ -174,6 +176,10 @@ Attempt内の設問単位結果を保持する。
 - Question削除は禁止（過去データ保護）
 - Quiz削除は論理削除推奨
 - Attempt削除は管理者操作のみ許可
+- 物理削除は禁止
+- AttemptおよびAttemptAnswersは論理削除のみ
+- isDeleted / deletedAt / deletedBy / deleteReasonを保持
+- Attempt論理削除時はAttemptAnswersも連動論理削除
 
 ---
 
