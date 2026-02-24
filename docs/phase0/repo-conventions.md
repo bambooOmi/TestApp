@@ -17,31 +17,41 @@ GitHubリポジトリ運用ルールを定義する。
 ---
 
 # 2. リポジトリ構成
+
 root/
 │
-├── src/ # GASソースコード
-│ ├── domain/ # 業務ロジック
-│ ├── application/ # ユースケース処理
-│ ├── infrastructure/ # Spreadsheet/Form連携
-│ ├── presentation/ # エントリポイント・トリガー
-│ └── appsscript.json
+├── src/                        # GASソースコード
+│   ├── domain/                 # 業務ロジック（採点・集計）
+│   ├── application/            # ユースケース処理
+│   ├── infrastructure/         # Spreadsheet / Form連携
+│   ├── presentation/           # エントリポイント・トリガー
+│   └── appsscript.json
 │
-├── docs/ # 設計・仕様ドキュメント
-│ ├── phase0-charter.md
-│ ├── mvp-scope.md
-│ ├── highlevel-requirements.md
-│ ├── feasibility-memo.md
-│ └── repo-conventions.md
+├── docs/                       # 設計・仕様ドキュメント
+│   │
+│   ├── phase0/                 # Phase0（企画）
+│   │   ├── phase0-charter.md
+│   │   ├── mvp-scope.md
+│   │   ├── highlevel-requirements.md
+│   │   ├── feasibility-memo.md
+│   │   └── repo-conventions.md
+│   │
+│   └── phase1/                 # Phase1（要求定義）
+│       ├── use-cases.md
+│       ├── acceptance-criteria.md
+│       ├── data-requirements.md
+│       ├── permission-model.md
+│       ├── requirements-spec.md
+│       └── test-scenarios.md
 │
-├── diagrams/ # 図ファイル
-│ ├── architecture.puml
-│ ├── er-diagram.puml
-│ └── *.drawio
+├── diagrams/                   # 図ファイル
+│   ├── architecture.puml
+│   ├── er-diagram.puml
+│   └── *.drawio
 │
-├── samples/ # サンプルデータ
+├── samples/                    # サンプルデータ
 │
 └── README.md
-
 
 ---
 
